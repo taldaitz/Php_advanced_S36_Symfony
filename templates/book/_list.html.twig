@@ -1,0 +1,28 @@
+<table>
+    <thead>
+        <tr>
+            <th>Titre</th>
+            {% if(hide_author is not defined)%}
+            <th>Auteur</th>
+            {% endif %}
+            <th>Description</th>
+            <th>Publication</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                {% if(hide_author is not defined)%}
+                <td>{{ book.author.fullName }}</td>
+                {% endif %}
+                <td>{{ book.description }}</td>
+                <td>{{ book.publishedDate|date('d/m/Y') }}</td>
+                <td><a href="/books/{{ book.id }}">Voir</a></td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>

@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block body %}
+
+<h1>{{book.title}}</h1>
+
+<ul>
+    <li>Ecrit par {{ book.author.fullName }}</li>
+    <li>{{ book.description }}</li>
+    <li>{{ book.publishedDate | date('d/m/Y') }}</li>
+</ul>
+
+{% endblock %}
